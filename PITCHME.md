@@ -60,6 +60,8 @@ $$|f(x)| \leq M|g(x)|$$
 
 for all $$x \geq x_0$$
 
+---
+
 ![Big O](bigo.png)
 
 ---
@@ -88,10 +90,6 @@ for i in x:
     for j in x:
         print(i + j)
 ```
-
-$$O(\log{n})$$
-
-$$O(n\log{n})$$
 
 ---
 
