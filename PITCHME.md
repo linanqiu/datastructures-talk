@@ -428,6 +428,136 @@ Per Operation:
 
 $$O(1+x)$$
 
+---
 
+### However...
 
+You can't stop people from abusing `foldRight`, `reverse` and `prepend`. e.g. Using the Cons List as a Queue. What can you do?
 
+- Strict evaluation
+- Lazy evaluation without memoization
+- Lazy evaluation with memoization
+
+### Okay...But can I haz Data Structure?
+
+So how do we actually build a Queue?
+
+---
+
+### How to Build a Queue (Baseline)
+
+```java
+public final class Queue<T> {
+    private final List<T> queue;
+}
+```
+
+---
+
+### How to Build a (Better) Queue
+
+```java
+public final class Queue<T> {
+    private static final Queue<?> EMPTY = new Queue<>(List.empty(), List.empty());
+    private final List<T> front; // or front
+    private final List<T> rear; // or rear
+}
+```
+
+![q1](q1.png)
+
+---
+
+### How to Enqueue
+
+```java
+@Override
+public Queue<T> enqueue(T element) {
+    return new Queue<>(front,rear.prepend(element));
+}
+```
+
+---
+
+### How to Tail
+
+```java
+@Override
+public Queue<T> tail() {
+    return new Queue<>(front.tail(), rear);
+}
+```
+
+---
+
+### How to Peek
+
+```java
+public T peek() {
+    if (isEmpty()) {
+        throw new NoSuchElementException("empty");
+    } else {
+        return front.head();
+    }
+}
+```
+
+---
+
+### How to Dequeue
+
+```java
+Queue queue = Queue.of(1, 2, 3);
+// = (1, Queue(2, 3))
+Tuple2<Integer, Queue> dequeued = queue.dequeue();
+```
+
+```java
+@Override
+public Tuple2<T, Q> dequeue() {
+    if (isEmpty()) {
+        throw new NoSuchElementException("empty");
+    } else {
+        return Tuple.of(head(), tail());
+    }
+}
+```
+
+---
+
+### What if Front is Empty?
+
+```java
+private Queue(List<T> front, List<T> rear) {
+    final boolean frontIsEmpty = front.isEmpty();
+    this.front = frontIsEmpty ? rear.reverse() : front;
+    this.rear = frontIsEmpty ? front : rear;
+}
+```
+
+Isn't `reverse()` expensive? (hint: amortized!)
+
+---
+
+### Why's Garbage Collection Important
+
+```java
+public Queue<Integer> someOperation(Queue<Integer> a) {
+    // a = 1 2 3
+    b = a.enqueue(4); // b = 1 2 3 4
+    c = b.enqueue(5); // c = 1 2 3 4 5
+    z = a.enqueue(6); // d = 1 2 3 6
+
+    return z;
+
+    // 4 and 5 are no longer being used. need to GC!!!
+}
+```
+
+---
+
+### What's the Point of This?
+
+- Common perils of mutable data structures
+- Immutable data structures as an unicorn
+- Functional programming is not a cult -- it's a way of being
