@@ -276,11 +276,48 @@ You could also always create new sets, do a deep-copy. Still icky.
 
 ---
 
-
-### What's Good?
+### Functional Data Structures
 
 ![Unicorn](unicorn.jpg)
 
+---
+
+### What's Good?
+
 - Immutability (no assignments)
 - Persistence
+
+---
+
+### How to Build a List
+
+```java
+final class Cons<T> implements List<T>{
+    private final T head;
+    private final List<T> tail;
+    private final int length;
+
+    public static List<T> of(int... items) {
+        // factory method that supports e.g.
+        // List<Integer> list1 = List.of(1, 2, 3);
+    }
+}
+```
+
+![ll1](ll1.png)
+
+---
+
+### How to Prepend a List
+
+```java
+@Override
+default List<T> prepend(T element) {
+    return new Cons<>(element, this);
+}
+```
+
+![ll2](ll2.png)
+
+---
 
