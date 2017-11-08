@@ -24,6 +24,7 @@ Data structures?
 - Linked Lists?
 - Stacks and Queues?
 - Hashing? Maps?
+- Sets?
 
 ---
 
@@ -142,7 +143,11 @@ class Node:
     def __init__(self, data, next):
         self.data = data
         self.next = next
+```
 
+---
+
+```python
 class LinkedList:
     def __init__(self):
         self.head = new Node(None, None)
@@ -167,7 +172,11 @@ class Node:
         self.data = data
         self.prev = prev
         self.next = next
+```
 
+---
+
+```python
 class LinkedList:
     def __init__(self):
         self.head = new Node(None, None, None)
@@ -184,4 +193,19 @@ class LinkedList:
         current.prev = node
         size += 1
 ```
-i
+
+---
+
+### Stack Interface
+
+- Can be implemented using a Linked List
+
+### Queue Interface
+
+- Can be implemented using a Doubly Linked List
+
+---
+
+### Map Interface
+
+
