@@ -1,4 +1,4 @@
-# Intro to Data Structures / Functional Data Structures in OO-Land
+## Intro to Data Structures / Functional Data Structures in OO-Land
 
 ---
 
