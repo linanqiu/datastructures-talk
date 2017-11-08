@@ -52,10 +52,10 @@ Data structures?
 
 ## Big-O
 
-$f(x) = O(g(x))$
+$$f(x) = O(g(x))$$
 
 if and only if
 
-$\abs{f(x)} \leq M\abs{g(x)}$
+$$\abs{f(x)} \leq M\abs{g(x)}$$
 
-for all $x \geq x_0$
+for all $$x \geq x_0$$
