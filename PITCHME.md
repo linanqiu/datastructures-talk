@@ -66,13 +66,13 @@ for all $$x \geq x_0$$
 
 ## Complexity
 
-- $$O(1)$$
+$$O(1)$$
 
 ```python
 x = 5
 ```
 
-- $$O(n)$$
+$$O(n)$$
 
 ```python
 x = [1, 2, 3, 4, 5]
@@ -80,9 +80,7 @@ for i in x:
     print(i * 2)
 ```
 
----
-
-- $$O(n^2)$$
+$$O(n^2)$$
 
 ```python
 x = [1, 2, 3, 4, 5]
@@ -91,8 +89,9 @@ for i in x:
         print(i + j)
 ```
 
-- $$O(\log{n})$$: binary search
-- $$O(n\log{n})$$: most (practical) sorting algorithms
+$$O(\log{n})$$
+
+$$O(n\log{n})$$
 
 ---
 
