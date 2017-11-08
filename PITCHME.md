@@ -120,7 +120,39 @@ Most (practical) sorting algorithms
 
 ---
 
-### Arrays
+### List Interface
 
-i
+- Support `add(item, i)`, `remove(i)`, `get(i)`, `set(item, i)`
+- Could use an Array, but what happens when you (1) add items (2) run out of space in the Array?
+- Array backed lists
+
+```
+[ ][ ][ ][ ][ ][ ][ ][ ][ ][ ]
+[a][b][c][ ][ ][ ][ ][ ][ ][ ]
+[a][b][c][d][ ][ ][ ][ ][ ][ ]
+[e][a][b][c][d][ ][ ][ ][ ][ ]
+```
+
+### Linked List
+
+```python
+class Node:
+    def __init__(self, data, next):
+        self.data = data
+        self.next = next
+
+class LinkedList:
+    def __init__(self):
+        self.head = new Node(None, None)
+        self.size = 0
+
+    def add(self, item, index):
+        current = self.head
+        for i in range(0, index):
+            current = current.next
+        node = new Node(item, current.next)
+        current.next = node
+        self.size = self.size + 1
+```
+
 
