@@ -321,3 +321,113 @@ default List<T> prepend(T element) {
 
 ---
 
+### How to Fold a List
+
+```java
+@Override
+default <U> U foldLeft(U zero, BiFunction<? super U, ? super T, ? extends U> f) {
+    U xs = zero;
+    for (T x : this) {
+        xs = f.apply(xs, x);
+    }
+    return xs;
+}
+```
+
+---
+
+### How to Reverse a List
+
+```java
+@Override
+default List<T> reverse() {
+    return (length() <= 1)
+        ? this
+        : foldLeft(empty(), List::prepend);
+}
+```
+
+---
+
+### How to Fold (Right) a List
+
+```java
+@Override
+default <U> U foldRight(U zero, BiFunction<? super U, ? super T, ? extends U> f) {
+    return reverse().foldLeft(zero, f);
+}
+```
+
+---
+
+### How to Append to a List
+
+```java
+@Override
+default List<T> append(T element) {
+    return foldRight(Cons.of(element), (x, xs) -> xs.prepend(x));
+}
+```
+
+---
+
+### Complexity?
+
+- `prepend`ing is cheap
+- `foldLeft` (as with all `foldLeft`s) are linear
+- `reverse` is expensive, linear
+- `foldRight` is expensive (linear + linear = linear)
+- `append` is expensive linear
+
+How do we think about complexity in this case?
+
+---
+
+### Complexity?
+
+```java
+Cons cons = Cons.of(1);
+cons.prepend(2);
+cons.prepend(3);
+...
+cons.prepend(n);
+cons.reverse();
+```
+
+---
+
+### Complexity?
+
+```java
+Cons cons = Cons.of(1); // O(1)
+cons.prepend(2); // O(1)
+cons.prepend(3); // O(1)
+...
+cons.prepend(n); // O(1)
+cons.reverse(); // O(n)
+```
+
+---
+
+### Banker's Method
+
+```java
+Cons cons = Cons.of(1); // O(1 + x)
+cons.prepend(2); // O(1 + x)
+cons.prepend(3); // O(1 + x)
+...
+cons.prepend(n); // O(1 + x)
+cons.reverse(); // O(n)
+```
+
+Total:
+
+$$O(2N + Nx) = O(N(2+x))$$
+
+Per Operation:
+
+$$O(1+x)$$
+
+
+
+
