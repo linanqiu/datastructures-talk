@@ -56,6 +56,6 @@ $$f(x) = O(g(x))$$
 
 if and only if
 
-$$\abs{f(x)} \leq M\abs{g(x)}$$
+$$|f(x)| \leq M|g(x)|$$
 
 for all $$x \geq x_0$$
