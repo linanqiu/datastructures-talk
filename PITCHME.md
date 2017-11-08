@@ -438,6 +438,8 @@ You can't stop people from abusing `foldRight`, `reverse` and `prepend`. e.g. Us
 - Lazy evaluation without memoization
 - Lazy evaluation with memoization
 
+---
+
 ### Okay...But can I haz Data Structure?
 
 So how do we actually build a Queue?
