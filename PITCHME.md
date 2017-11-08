@@ -110,16 +110,7 @@ Most (practical) sorting algorithms
 ## Interfaces vs Implementations
 
 - Interfaces: what a data structure does.
-    - e.g. A car should support the following operations: `accelerate`, `turn`, `brake`.
 - Implementation: how a data structure does it
-    - e.g. a Tesla implements `accelerate` electrically while a Honda implements `accelerate` by pumping fuel
-
-Using queue,
-
-- Interface: what the queue does:
-    - Queues should support `enqueue` and `dequeue`
-- Implementation: how the queue does it:
-    - Array based / linked list / two stacks
 
 ---
 
@@ -129,5 +120,5 @@ Using queue,
 
 ## Arrays
 
-
+i
 
