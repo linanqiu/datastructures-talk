@@ -30,9 +30,9 @@ Data structures?
 
 ### Calibration (3)
 
-- Garbage collection?
 - Immutability? Immutable data structures?
 - Persistent data structures?
+- Garbage collection?
 
 ---
 
@@ -150,14 +150,14 @@ class Node:
 ```python
 class LinkedList:
     def __init__(self):
-        self.head = new Node(None, None)
+        self.head = Node(None, None)
         self.size = 0
 
     def add(self, item, index):
         current = self.head
         for i in range(0, index):
             current = current.next
-        node = new Node(item, current.next)
+        node = Node(item, current.next)
         current.next = node
         self.size = self.size + 1
 ```
@@ -179,8 +179,8 @@ class Node:
 ```python
 class LinkedList:
     def __init__(self):
-        self.head = new Node(None, None, None)
-        self.tail = new Node(None, self.head, None)
+        self.head = Node(None, None, None)
+        self.tail = Node(None, self.head, None)
         self.head = self.tail
         self.size = 0
 
@@ -188,7 +188,7 @@ class LinkedList:
         current = self.head
         for i in range(0, index):
             current = current.next
-        node = new Node(item, current.prev, current)
+        node = Node(item, current.prev, current)
         node.prev.next = node
         current.prev = node
         size += 1
@@ -196,16 +196,87 @@ class LinkedList:
 
 ---
 
-### Stack Interface
+### Stack and Queue Interfaces
 
-- Can be implemented using a Linked List
-
-### Queue Interface
-
-- Can be implemented using a Doubly Linked List
+- Stack: Last In First Out (LIFO)
+    - Can be implemented using a Linked List
+- Queues: First In First Out (FIFO)
+    - Can be implemented using a Doubly Linked List
 
 ---
 
 ### Map Interface
+
+- A dictionary! Supports `get(key)` and `set(key, value)`
+- Sketch of an implementation of a hash map
+- Hashing and keys
+
+---
+
+### Set Interface
+
+- A dictionary (without values). Supports `contains(key)` and `add(key)`
+- HashSet is a common implementation
+
+---
+
+## Fun Stuff
+
+Functional Data Structures!
+
+> You can have any data structure you want as long as it's imperative - Not Henry Ford
+
+---
+
+### Motivating 'Wat's
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def setname(name):
+        self.name = name
+
+    def setage(age):
+        self.age = age
+
+    def __eq__(self, other):
+        # something based on name and age
+
+    def __hash__(self):
+        # something based on name and age
+```
+
+---
+
+```python
+linan = Person('Linan', 26)
+hashmap = HashMap()
+hashmap.put(linan, '123 456 7890')
+
+linan.setname('George')
+# wouldn't return me anything
+hashmap.get(linan)
+
+# even worse
+hashmap.set(linan, '123 456 7890')
+```
+
+---
+
+### What's Good?
+
+`(╯°□°）╯（ ┻━┻`
+
+- Immutability (no assignments)
+- Persistence
+
+```python
+a = List(1, 2, 3)
+b = a.append(4) # b = 1 2 3 4, a = 1 2 3
+c = a.append(5) # c = 1 2 3 5
+```
 
 
