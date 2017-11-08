@@ -133,6 +133,8 @@ Most (practical) sorting algorithms
 [e][a][b][c][d][ ][ ][ ][ ][ ]
 ```
 
+---
+
 ### Linked List
 
 ```python
