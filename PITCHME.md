@@ -274,6 +274,8 @@ sUnmodifiable.add(new Rectangle(3, 4)); // throws
 
 You could also always create new sets, do a deep-copy. Still icky.
 
+---
+
 ### What's Good?
 
 ![Unicorn](unicorn.jpg)
