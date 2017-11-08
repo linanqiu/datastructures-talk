@@ -2,7 +2,7 @@
 
 ---
 
-## Calibration (0)
+### Calibration (0)
 
 ![Blank Derp](blank.jpg)
 
@@ -10,7 +10,7 @@ Data structures?
 
 ---
 
-## Calibration (1)
+### Calibration (1)
 
 
 - Big-O and complexity?
@@ -18,7 +18,7 @@ Data structures?
 
 ---
 
-## Calibration (2)
+### Calibration (2)
 
 - Arrays?
 - Linked Lists?
@@ -27,7 +27,7 @@ Data structures?
 
 ---
 
-## Calibration (3)
+### Calibration (3)
 
 - Garbage collection?
 - Immutability? Immutable data structures?
@@ -35,18 +35,20 @@ Data structures?
 
 ---
 
-## Preface
+### Preface
 
 - Language agnostic, so I used `python`
 - Trigger warning for folks with Mathematics / CS Theory background (why are you here anyway?)
 
 ---
 
-# Primers
+## Primers
+
+Data Structures, Complexity, Interfaces
 
 ---
 
-## Data Structures
+### Data Structures
 
 - Data lives in memory
 - How we store that data in memory is important
@@ -54,7 +56,7 @@ Data structures?
 
 ---
 
-## Big-O
+### Big-O
 
 $$f(x) = O(g(x))$$
 
@@ -70,7 +72,7 @@ for all $$x \geq x_0$$
 
 ---
 
-## Complexity
+### Complexity
 
 $$O(1)$$
 
@@ -107,18 +109,18 @@ Most (practical) sorting algorithms
 
 ---
 
-## Interfaces vs Implementations
+### Interfaces vs Implementations
 
 - Interfaces: what a data structure does.
 - Implementation: how a data structure does it
 
 ---
 
-# Common Data Structures
+## Common Data Structures
 
 ---
 
-## Arrays
+### Arrays
 
 i
 
