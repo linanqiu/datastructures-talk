@@ -123,8 +123,6 @@ Most (practical) sorting algorithms
 ### List Interface
 
 - Support `add(item, i)`, `remove(i)`, `get(i)`, `set(item, i)`
-
-#### Array Backed Lists
 - Could use an Array, but what happens when you (1) add items (2) run out of space in the Array?
 - Array backed lists
 
@@ -159,4 +157,29 @@ class LinkedList:
         self.size = self.size + 1
 ```
 
+#### Doubly Linked List
+
+```python
+class Node:
+    def __init__(self, data, prev, next):
+        self.data = data
+        self.prev = prev
+        self.next = next
+
+class LinkedList:
+    def __init__(self):
+        self.head = new Node(None, None, None)
+        self.tail = new Node(None, self.head, None)
+        self.head = self.tail
+        self.size = 0
+
+    def add(self, item, index):
+        current = self.head
+        for i in range(0, index):
+            current = current.next
+        node = new Node(item, current.prev, current)
+        node.prev.next = node
+        current.prev = node
+        size += 1
+```
 
