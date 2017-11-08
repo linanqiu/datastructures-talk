@@ -230,53 +230,54 @@ Functional Data Structures!
 
 ### Motivating 'Wat's
 
-```python
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+```java
+public class Rectangle implements Comparable<Rectangle> {
+    private int width, height;
+    public Rectangle(int width, int height);
 
-    def setname(name):
-        self.name = name
+    public int getWidth();
+    public int getHeight();
+    public void setWidth(int width);
+    public void setHeight(int height);
 
-    def setage(age):
-        self.age = age
-
-    def __eq__(self, other):
-        # something based on name and age
-
-    def __hash__(self):
-        # something based on name and age
+    public int hashCode();
+    public boolean equals(Object o);
+    public int compareTo(Rectangle r);
+}
 ```
 
 ---
 
-```python
-linan = Person('Linan', 26)
-hashmap = HashMap()
-hashmap.put(linan, '123 456 7890')
+```java
+Set<Rectangle> s = new HashSet<Rectangle>();
+Rectangle r = new Rectangle(2, 3);
+s.add(r);
 
-linan.setname('George')
-# wouldn't return me anything
-hashmap.get(linan)
+r.setWidth(5);
+s.size(); // 1
+s.contains(r) // AHA false
 
-# even worse
-hashmap.set(linan, '123 456 7890')
+// even more fun...
+s.add(r); // s = [Rectangle(5, 3), Rectangle(5, 3)]
 ```
 
 ---
+
+### Java's Solution
+
+```java
+Set<Rectangle> s = new HashSet<Rectangle>();
+Rectangle r = new Rectangle(2, 3);
+Set<Rectangle> sUnmodifiable = Collections.unmodifiableSet(r);
+sUnmodifiable.add(new Rectangle(3, 4)); // throws
+```
+
+You could also always create new sets, do a deep-copy. Still icky.
 
 ### What's Good?
 
-`(╯°□°）╯（ ┻━┻`
+![Unicorn](unicorn.jpg)
 
 - Immutability (no assignments)
 - Persistence
-
-```python
-a = List(1, 2, 3)
-b = a.append(4) # b = 1 2 3 4, a = 1 2 3
-c = a.append(5) # c = 1 2 3 5
-```
-
 
