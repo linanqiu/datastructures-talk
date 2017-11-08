@@ -157,6 +157,8 @@ class LinkedList:
         self.size = self.size + 1
 ```
 
+---
+
 #### Doubly Linked List
 
 ```python
@@ -182,4 +184,4 @@ class LinkedList:
         current.prev = node
         size += 1
 ```
-
+i
